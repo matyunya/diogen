@@ -44,6 +44,7 @@
     /*jshint validthis:true */
     var home = this;
     this.data = data.data;
+   // $scope.test = $resource('http://client.yahon.ru/basic/web/index.php/poetry');
     $scope.newPoemForm = {};
     $scope.newPoemForm.poem = "";
     $scope.newPoemForm.author = "";
@@ -51,6 +52,7 @@
   
   function firstLoad()
   {
+    // $scope.test = $resource('http://client.yahon.ru/basic/web/index.php/poetry');
       $http({
         url: 'http://client.yahon.ru/basic/web/index.php/poetry',
         method: "GET",

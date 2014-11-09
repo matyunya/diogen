@@ -12,11 +12,13 @@
   }
 
   function MainCtrl($log) {
-    $log.debug('MainCtrl laoded!');
+    $log.debug('MainCtrl loaded!');
+    //var User = $resource('http://client.yahon.ru/basic/web/index.php/poetry');
   }
 
   function run($log) {
     $log.debug('App is running!');
+    
   }
 
   angular.module('app', [
@@ -30,7 +32,6 @@
       'common.filters.uppercase',
       'common.interceptors.http',
       'templates',
-      'ngResource'
     ], function($httpProvider)
 {
   // Используем x-www-form-urlencoded Content-Type
