@@ -1,1 +1,1 @@
-Basic angular app built on angular-kickstart boilerplate using rest API from Yii2 based backend.
+Basic angular app built on <a href="http://vesparny.github.io/angular-kickstart/">angular-kickstart</a> boilerplate using rest API from Yii2 based backend.
