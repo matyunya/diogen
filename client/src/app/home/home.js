@@ -40,32 +40,29 @@
    * @name  HomeCtrl
    * @description Controller
    */
-  function HomeCtrl(data, $http, $scope) {
+  function HomeCtrl(data, $http, $scope, $resource) {
     /*jshint validthis:true */
     var home = this;
     this.data = data.data;
-   // $scope.test = $resource('http://client.yahon.ru/basic/web/index.php/poetry');
+    var PoetryAPI = $resource('http://client.yahon.ru/basic/web/index.php/poetry');
+    
     $scope.newPoemForm = {};
     $scope.newPoemForm.poem = "";
     $scope.newPoemForm.author = "";
+    
      firstLoad();
+     
+     
   
   function firstLoad()
   {
-    // $scope.test = $resource('http://client.yahon.ru/basic/web/index.php/poetry');
-      $http({
-        url: 'http://client.yahon.ru/basic/web/index.php/poetry',
-        method: "GET",
-        //params:"date:" + Date.now(),
-        
-        withCredentials: false,
-        headers: {
-                    'Content-Type': 'application/json; charset=utf-8'
-        }
-    }).success(function(data) {
+    PoetryAPI.query(function(data) {
+  // Handle successful response here
     $scope.poems = data;
-  });
-  $scope.newPoemForm.poem = "";
+    }, function(err) {
+    // Handle error here
+    });
+  
   }
   
   function append(dataObject)
@@ -99,7 +96,7 @@
   
   
 
-  angular.module('home', [])
+  angular.module('home', ['ngResource'])
     .config(config)
     .controller('HomeCtrl', HomeCtrl);
 })();

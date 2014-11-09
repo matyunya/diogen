@@ -13,7 +13,6 @@
 
   function MainCtrl($log) {
     $log.debug('MainCtrl loaded!');
-    //var User = $resource('http://client.yahon.ru/basic/web/index.php/poetry');
   }
 
   function run($log) {
@@ -24,7 +23,6 @@
   angular.module('app', [
       'ui.router',
       'home',
-      'getting-started',
       'common.header',
       'common.footer',
       'common.services.data',
@@ -32,6 +30,7 @@
       'common.filters.uppercase',
       'common.interceptors.http',
       'templates',
+      'ngResource'
     ], function($httpProvider)
 {
   // Используем x-www-form-urlencoded Content-Type
