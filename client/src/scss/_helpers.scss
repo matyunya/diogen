@@ -1,0 +1,25 @@
+%center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+%text-center {
+  text-align:center;
+  font-size: 24px;
+  font-family: EB Garamond;
+}
+
+%clearfix {
+  &::before,
+  &::after {
+    content: "";
+    display: table;
+  }
+  &::after {
+    clear: both;
+  }
+}
+
+.text-center{
+  @extend %text-center;
+}
