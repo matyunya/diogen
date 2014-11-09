@@ -29,7 +29,8 @@
       'common.directives.version',
       'common.filters.uppercase',
       'common.interceptors.http',
-      'templates'
+      'templates',
+      'ngResource'
     ], function($httpProvider)
 {
   // Используем x-www-form-urlencoded Content-Type
