@@ -45,6 +45,7 @@
     var home = this;
     this.data = data.data;
     var PoetryAPI = $resource('http://client.yahon.ru/basic/web/index.php/poetry');
+    var PostAPI = $resource('http://client.yahon.ru/basic/web/index.php/poetry/create');
     
     $scope.newPoemForm = {};
     $scope.newPoemForm.poem = "";
@@ -81,15 +82,12 @@
           "poem" : $scope.newPoemForm.poem,
           "author" : $scope.newPoemForm.author,
        };
-       var responsePromise = $http.post("http://client.yahon.ru/basic/web/index.php/poetry/create", dataObject, {});
-       responsePromise.success(function(dataFromServer, status, headers, config) {
-          console.log(dataFromServer.title);
-          append(dataObject);
-       });
-        responsePromise.error(function(data, status, headers, config) {
-          alert("Submitting form failed!");
-       });
-     }
+       PostAPI.save(dataObject, function() {
+        append(dataObject);
+      }, function() {
+      alert("Submitting form failed!");
+      });
+    }
     
   }
   
