@@ -7,11 +7,10 @@
     <p><pre>{{ newPoemForm.poem}} <span style="font-size:11px">{{newPoemForm.author}}</span</pre></p> 
     </div>
 </div>
-
  
 <div class="poem-form pure-u-1 text-center">
     <form>
-        <textarea id="poem" rows=3 ng-model="newPoemForm.poem" placeholder="Поэзия"></textarea><br>
+        <textarea id="poem" rows=3 ng-model="newPoemForm.poem" placeholder="Поэзия" required ng-maxlength=120></textarea><br>
         <small> <input id="poem" ng-model="newPoemForm.author" placeholder="анонимус или?"><br></small>
 <button ng-click="newPoemForm.submitTheForm()">Ага</button>
 
